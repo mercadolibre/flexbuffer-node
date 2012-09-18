@@ -1,3 +1,4 @@
+
 function FlexBuffer(){
     this.originalArgs = arguments
     this.buffer = Buffer.call(this,arguments)
@@ -10,9 +11,9 @@ FlexBuffer.prototype.rewind = function(){
 }
 
 FlexBuffer.prototype.reset = function(){
-    this.buffer = Buffer.call(this,originalArgs)
+    this.buffer = Buffer.call(this,this.originalArgs)
     this.length = this.buffer.length
-    this.reset()
+    this.tail = 0
 }
 
 FlexBuffer.prototype.resizeBuffer = function(minLen){
@@ -28,13 +29,19 @@ FlexBuffer.prototype.resizeBuffer = function(minLen){
 FlexBuffer.prototype.write = function(arg){
     if(!arg)
         return;
+    if(!arg.length){
+        arg = String(arg)
+    }
     var len = arg.length
     if(this.tail+len >= this.length)
         this.resizeBuffer(len)
     if(Buffer.isBuffer(arg)){
         arg.copy(this.buffer,this.tail)
     }else{
-        this.buffer.write(String(arg),this.tail)
+        if(typeof arg === "string")
+            this.buffer.write(arg,this.tail)
+        else
+            this.buffer.write(String(arg),this.tail)
     }
     this.tail+=len
    
@@ -52,3 +59,4 @@ FlexBuffer.prototype.getBuffer = function(){
 }
 
 module.exports.FlexBuffer = FlexBuffer
+
