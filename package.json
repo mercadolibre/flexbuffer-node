@@ -9,7 +9,7 @@
     "url": "https://github.com/mercadolibre/flexbuffer-node"
   },
   "scripts": {
-
+	"test": "mocha --debug --globals myThis,myHolder,myCallee,State_myThis --reporter spec -t 5000 -s 3000 ${TESTFILE}"
   },
   "dependencies": {
 	},
