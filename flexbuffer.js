@@ -58,5 +58,10 @@ FlexBuffer.prototype.getBuffer = function(){
     return b
 }
 
+FlexBuffer.prototype.delete = function(start, end) {
+    var copy = this.buffer.slice(end, this.tail).copy(this.buffer, start);
+    this.tail = this.tail - end + start;
+}
+
 module.exports.FlexBuffer = FlexBuffer
 

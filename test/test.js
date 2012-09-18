@@ -113,6 +113,25 @@ describe("tests" ,function(){
 		done();
 	});
 
+	it ("getBufferReference validacion de referencia", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.getBufferReference().write("c", 0);
+		flexbuffer.getBufferReference().toString().should.equal("caabbb");
+		done();
+	});
+
+
+	it ("getBuffer validacion de copia", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.getBuffer().write("c", 0);
+		flexbuffer.getBufferReference().toString().should.equal("aaabbb");
+		done();
+	});
+
 
 	it ("getBuffer equal getBufferReference", function (done) {
 		var flexbuffer = new fbuffers.FlexBuffer();
@@ -121,5 +140,53 @@ describe("tests" ,function(){
 		flexbuffer.getBuffer().toString().should.equal(flexbuffer.getBufferReference().toString());
 		done();
 	});
+
+	it ("delete un caracter", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.delete(0,1);
+		flexbuffer.getBuffer().toString().should.equal("aabbb");
+		done();
+	});
+
+
+	it ("delete atras", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.delete(3,6);
+		flexbuffer.getBuffer().toString().should.equal("aaa");
+		done();
+	});
+
+	it ("delete medio", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.write("ccc");
+		flexbuffer.delete(3,6);
+		flexbuffer.getBuffer().toString().should.equal("aaaccc");
+		done();
+	});
+
+	it ("delete adelante", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaaaaa");
+		flexbuffer.write("bbb");
+		flexbuffer.delete(0,6);
+		flexbuffer.getBuffer().toString().should.equal("bbb");
+		done();
+	});
+
+	it ("delete todo el buffer", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.delete(0,6);
+		flexbuffer.getBufferReference().length.should.equal(0);
+		done();
+	});
+
 
 });
