@@ -12,6 +12,3 @@ Install it with NPM or add it to your package.json:
 	flexbuffer.write("bbb");
 
 For more usage examples, see the [tests](https://github.com/mercadolibre/flexbuffer-node/blob/master/test/tests.js).
-
-
-	

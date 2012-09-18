@@ -43,8 +43,7 @@ FlexBuffer.prototype.write = function(arg){
         else
             this.buffer.write(String(arg),this.tail)
     }
-    this.tail+=len
-   
+    this.tail+=len   
 }
 
 FlexBuffer.prototype.getBufferReference = function(){
@@ -59,8 +58,12 @@ FlexBuffer.prototype.getBuffer = function(){
 }
 
 FlexBuffer.prototype.delete = function(start, end) {
-    var copy = this.buffer.slice(end, this.tail).copy(this.buffer, start);
-    this.tail = this.tail - end + start;
+    var copy = this.buffer.slice(end, this.tail).copy(this.buffer, start)
+    this.tail = this.tail - end + start
+}
+
+FlexBuffer.prototype.getLength = function() {
+	return this.tail
 }
 
 module.exports.FlexBuffer = FlexBuffer
