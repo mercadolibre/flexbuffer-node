@@ -23,7 +23,7 @@ FlexBuffer.prototype.resizeBuffer = function(minLen){
     this.length = (this.length + minLen) * 2
     var oldBuffer = this.buffer
     this.buffer = new Buffer(this.length)
-    oldBuffer.copy(this.buffer,0)
+    oldBuffer.copy(this.buffer,0, 0, this.tail)
 }
 
 FlexBuffer.prototype.write = function(arg){

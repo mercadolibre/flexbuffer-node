@@ -257,5 +257,15 @@ describe("tests" ,function(){
 		done();
 	});
 
+	it ("write string with \\n", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("Sab0tcj0lM+00000109&tms=1348070338843&tmsjson=2012-09-19T15:58:58.843Z&sid=bbbbbbbbbbbb&message=lelelele&consumer=0&consumidor=0\n");
+		flexbuffer.getBufferReference().length.should.equal(129);
+		flexbuffer.getBufferReference().toString().length.should.equal(129);
+		flexbuffer.getBufferReference().toString().should.equal("Sab0tcj0lM+00000109&tms=1348070338843&tmsjson=2012-09-19T15:58:58.843Z&sid=bbbbbbbbbbbb&message=lelelele&consumer=0&consumidor=0\n");
+		done();
+	});
+
+
 
 });
