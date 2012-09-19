@@ -4,6 +4,7 @@
   "name": "flexbuffer",
   "description": "Buffer optimized",
   "version": "0.0.1",
+  "main" : "./flexbuffer",
   "homepage": "https://github.com/mercadolibre/flexbuffer-node",
   "repository": {
     "type": "git",
