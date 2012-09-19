@@ -62,6 +62,13 @@ FlexBuffer.prototype.delete = function(start, end) {
     this.tail = this.tail - end + start
 }
 
+FlexBuffer.prototype.deleteAndGet = function(start, end) {
+    var b = new Buffer(end - start);
+    this.buffer.slice(start, end).copy(b);
+    this.delete(start, end);
+    return b;
+}
+
 FlexBuffer.prototype.getLength = function() {
 	return this.tail
 }

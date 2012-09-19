@@ -206,5 +206,56 @@ describe("tests" ,function(){
 		done();
 	});
 
+	it ("deleteAndGet atras", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		var buffer = flexbuffer.deleteAndGet(3,6);
+		flexbuffer.getBuffer().toString().should.equal("aaa");
+		buffer.toString().should.equal("bbb");
+		done();
+	});
+
+	it ("deleteAndGet medio", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.write("ccc");
+		var buffer = flexbuffer.deleteAndGet(3,6);
+		flexbuffer.getBuffer().toString().should.equal("aaaccc");
+		buffer.toString().should.equal("bbb");
+		done();
+	});
+
+	it ("deleteAndGet adelante", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaaaaa");
+		flexbuffer.write("bbb");
+		var buffer = flexbuffer.deleteAndGet(0,6);
+		flexbuffer.getBuffer().toString().should.equal("bbb");
+		buffer.toString().should.equal("aaaaaa");
+		done();
+	});
+
+	it ("deleteAndGet todo el buffer", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		var buffer = flexbuffer.deleteAndGet(0,6);
+		flexbuffer.getBufferReference().length.should.equal(0);
+		buffer.toString().should.equal("aaabbb");
+		done();
+	});
+
+	it ("deleteAndGet un caracter", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		var buffer = flexbuffer.deleteAndGet(0,1);
+		flexbuffer.getBuffer().toString().should.equal("aabbb");
+		buffer.toString().should.equal("a");
+		done();
+	});
+
 
 });
