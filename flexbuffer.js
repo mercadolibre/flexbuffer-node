@@ -17,7 +17,7 @@ FlexBuffer.prototype.reset = function(){
 }
 
 FlexBuffer.prototype.resizeBuffer = function(minLen){
-    if(this.lenth == 0){
+    if(this.length == 0){
         this.length = 1
     }
     this.length = (this.length + minLen) * 2
