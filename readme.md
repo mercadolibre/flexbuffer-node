@@ -6,7 +6,7 @@ Install it with NPM or add it to your package.json:
 	npm install flexbuffer
 
 ## How to use
-	var flexbuffer = require('flexbuffer');
+	var fbuffers = require('flexbuffer');
 	var flexbuffer = new fbuffers.FlexBuffer();
 	flexbuffer.write("aaa");
 	flexbuffer.write("bbb");
