@@ -15,11 +15,10 @@
   "dependencies": {
 	},
   "devDependencies": {
-	},
-  "optionalDependencies": {
         "should" : "0.6.x",
 	"mocha" : "1.2.x"
-},
+	},
+  "optionalDependencies": {},
   "engines": {
     "node": "*"
   }
