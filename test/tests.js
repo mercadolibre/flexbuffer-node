@@ -188,5 +188,23 @@ describe("tests" ,function(){
 		done();
 	});
 
+	it ("getLength", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.getLength().should.equal(6);
+		done();
+	});
+
+	it ("getLength after reset", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("aaa");
+		flexbuffer.write("bbb");
+		flexbuffer.getLength().should.equal(6);
+		flexbuffer.reset();
+		flexbuffer.getLength().should.equal(0);
+		done();
+	});
+
 
 });
