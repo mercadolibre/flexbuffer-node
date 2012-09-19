@@ -1,5 +1,6 @@
 {
-  "author": ["Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>", "Marcos Lilljedahl <marcos.lilljedahl@mercadolibre.com>" ,"Matias Rege <matias.rege@mercadolibre.com>"],
+  "author": ["Marcos Lilljedahl <marcos.lilljedahl@mercadolibre.com>"],
+  "contributors": ["Matias Rege <matias.rege@mercadolibre.com>", "Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>"],
   "name": "flexbuffer",
   "description": "Buffer optimized",
   "version": "0.0.1",
