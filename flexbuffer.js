@@ -32,16 +32,19 @@ FlexBuffer.prototype.write = function(arg){
     if(!arg.length){
         arg = String(arg)
     }
-    var len = arg.length
+
+    if(typeof arg === "string")
+       var len = Buffer.byteLength(arg);
+    else
+       var len = arg.length;
+
     if(this.tail+len >= this.length)
         this.resizeBuffer(len)
+
     if(Buffer.isBuffer(arg)){
         arg.copy(this.buffer,this.tail)
     }else{
-        if(typeof arg === "string")
-            this.buffer.write(arg,this.tail)
-        else
-            this.buffer.write(String(arg),this.tail)
+	this.buffer.write(arg,this.tail)
     }
     this.tail+=len   
 }
