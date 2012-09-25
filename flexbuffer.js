@@ -61,8 +61,16 @@ FlexBuffer.prototype.getBuffer = function(){
 }
 
 FlexBuffer.prototype.delete = function(start, end) {
+    checkParams(start, end, this.tail);
     var copy = this.buffer.slice(end, this.tail).copy(this.buffer, start)
     this.tail = this.tail - end + start
+}
+
+var checkParams = function (start, end, size) {
+	if (end > size || start > size || start < 0 || end < 0 || start > end) {
+		  throw new Error("Start and end not valid. start:["+start+"], end:["+end+"], size:["+size+"]");	
+	}
+
 }
 
 FlexBuffer.prototype.deleteAndGet = function(start, end) {

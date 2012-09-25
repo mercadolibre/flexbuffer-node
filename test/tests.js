@@ -283,4 +283,89 @@ describe("tests" ,function(){
 		done();
 	});
 
+	it ("exception con start y end erroneos", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(0,10);
+		} catch (e) {
+			done();
+			return;
+		}
+		should.fail('expected an error!');
+	});
+
+	it ("exception con start negativo", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(-1,10);
+		} catch (e) {
+			done();
+			return;
+		}
+		should.fail('expected an error!');
+	});
+
+	it ("exception con end negativo", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(0,-1);
+		} catch (e) {
+			done();
+			return;
+		}
+		should.fail('expected an error!');
+	});
+
+
+	it ("exception con start y end erroneos", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(0,10);
+		} catch (e) {
+			done();
+			return;
+		}
+		should.fail('expected an error!');
+	});
+
+	it ("exception start > end", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(9,8);
+		} catch (e) {
+			done();
+			return;
+		}
+		should.fail('expected an error!');
+	});
+
+	it ("exception con start muy grande", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(10,11);
+		} catch (e) {
+			done();
+			return;
+		}
+		should.fail('expected an error!');
+	});
+
+	it ("no errores con start and end validos", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		flexbuffer.write("123456789");
+		try {
+			flexbuffer.deleteAndGet(0,9);
+		} catch (e) {
+			should.fail('No deberia dar error!', e);
+			return;
+		}
+		done();
+	});
+
 });
