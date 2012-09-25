@@ -272,14 +272,6 @@ describe("tests" ,function(){
 		flexbuffer.write(str);
 		var buffer = new Buffer(str);
 		flexbuffer.getBuffer().length.should.equal(buffer.length);
-//		console.log ("flexbuffer.getBufferReference().length: "+flexbuffer.getBufferReference().length);
-//		console.log ("flexbuffer.getBuffer().length: "+flexbuffer.getBuffer().length);
-//		console.log ("flexbuffer.getBufferReference().toString().length: "+flexbuffer.getBufferReference().toString('utf8').length);
-//		console.log ("flexbuffer.getBuffer().toString().length: "+flexbuffer.getBuffer().toString('ascii').length);
-//		console.log ("str.length: "+str.length);
-//		console.log ("flexbuffer.getLength: "+flexbuffer.getLength());
-//		console.log ("buffer.length: "+buffer.length);
-//		new String (flexbuffer.getBuffer(), 'utf8').should.equal(str);
 		done();
 	});
 
