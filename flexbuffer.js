@@ -1,7 +1,11 @@
 
 function FlexBuffer(){
     this.originalArgs = arguments
-    this.buffer = Buffer.call(this,arguments)
+   
+    if (arguments[0] && typeof arguments[0] === "number") 
+        this.buffer = new Buffer (arguments[0]);
+    else
+        this.buffer = Buffer.call(this,arguments);
     this.length = this.buffer.length
     this.tail = 0
 }
@@ -82,6 +86,10 @@ FlexBuffer.prototype.deleteAndGet = function(start, end) {
 
 FlexBuffer.prototype.getLength = function() {
 	return this.tail
+}
+
+FlexBuffer.prototype.getBufferLength = function() {
+	return this.buffer.length;
 }
 
 module.exports.FlexBuffer = FlexBuffer

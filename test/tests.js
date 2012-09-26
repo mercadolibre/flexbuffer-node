@@ -275,6 +275,22 @@ describe("tests" ,function(){
 		done();
 	});
 
+
+	it ("write buffer con caracteres especiales", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer();
+		var buffer = new Buffer("\u00bd + \u00bc = \u00be");
+		flexbuffer.write(buffer);
+		flexbuffer.getBuffer().length.should.equal(buffer.length);
+		done();
+	});
+
+	it ("create buffer with initial length", function (done) {
+		var flexbuffer = new fbuffers.FlexBuffer(50);
+		flexbuffer.getBufferLength().should.equal(50);
+		done();
+	});
+
+
 	it ("exception con start y end erroneos", function (done) {
 		var flexbuffer = new fbuffers.FlexBuffer();
 		flexbuffer.write("123456789");
