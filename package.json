@@ -3,7 +3,7 @@
   "contributors": ["Matias Rege <matias.rege@mercadolibre.com>", "Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>"],
   "name": "flexbuffer",
   "description": "Buffer optimized",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main" : "./flexbuffer",
   "homepage": "https://github.com/mercadolibre/flexbuffer-node",
   "repository": {
