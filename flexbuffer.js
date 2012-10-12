@@ -45,10 +45,10 @@ FlexBuffer.prototype.write = function(arg){
     if(this.tail+len >= this.length)
         this.resizeBuffer(len)
 
-    if(arg.copy != undefined){
+    if(Buffer.isBuffer(arg)){
         arg.copy(this.buffer,this.tail)
     }else{
-	this.buffer.write(arg,this.tail)
+        this.buffer.write(arg,this.tail)
     }
     this.tail+=len   
 }
