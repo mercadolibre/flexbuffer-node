@@ -1,26 +1,38 @@
 {
-  "author": ["Marcos Lilljedahl <marcos.lilljedahl@mercadolibre.com>"],
-  "contributors": ["Matias Rege <matias.rege@mercadolibre.com>", "Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>"],
   "name": "flexbuffer",
+  "version": "1.0.0",
+  "author": [
+    "Marcos Lilljedahl <marcos.lilljedahl@mercadolibre.com>"
+  ],
+  "contributors": [
+    "Matias Rege <matias.rege@mercadolibre.com>",
+    "Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>",
+    "Vitaly Aminev <v@makeomatic.ru>"
+  ],
   "description": "Buffer optimized",
-  "version": "0.0.6",
-  "main" : "./flexbuffer",
+  "main": "./flexbuffer",
+  "files": [
+    "./flexbuffer.js"
+  ],
   "homepage": "https://github.com/mercadolibre/flexbuffer-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/mercadolibre/flexbuffer-node"
   },
   "scripts": {
-	"test": "mocha --debug --globals myThis,myHolder,myCallee,State_myThis --reporter spec -t 5000 -s 3000 ${TESTFILE}"
+    "test": "npm run lint && mocha ${TESTFILE}",
+    "lint": "eslint ./flexbuffer.js ./flexbuffer-legacy.js"
   },
-  "dependencies": {
-	},
   "devDependencies": {
-        "should" : "0.6.x",
-	"mocha" : "1.2.x"
-	},
-  "optionalDependencies": {},
+    "eslint": "^3.11.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "mocha": "^3.2.0",
+    "should": "^11.1.1"
+  },
   "engines": {
-    "node": "*"
+    "node": ">= 4.x.x",
+    "npm": ">= 3.x.x"
   }
 }
