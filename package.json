@@ -6,6 +6,7 @@
   "version": "0.0.6",
   "main" : "./flexbuffer",
   "homepage": "https://github.com/mercadolibre/flexbuffer-node",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/mercadolibre/flexbuffer-node"
