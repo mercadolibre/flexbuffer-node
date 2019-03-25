@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "lib": [
+      "esnext"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "outDir": "build",
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "index.d.ts",
+    "src"
+  ]
+}

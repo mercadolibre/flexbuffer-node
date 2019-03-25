@@ -1,26 +1,68 @@
 {
-  "author": ["Marcos Lilljedahl <marcos.lilljedahl@mercadolibre.com>"],
-  "contributors": ["Matias Rege <matias.rege@mercadolibre.com>", "Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>"],
-  "name": "flexbuffer",
+  "name": "flexbuffer2",
   "description": "Buffer optimized",
-  "version": "0.0.6",
-  "main" : "./flexbuffer",
-  "homepage": "https://github.com/mercadolibre/flexbuffer-node",
+  "version": "1.0.0",
+  "main": "build/flexbuffer",
+  "typings": "index.d.ts",
+  "homepage": "https://github.com/kerihenare/flexbuffer-node",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mercadolibre/flexbuffer-node"
+    "url": "https://github.com/kerihenare/flexbuffer-node"
   },
+  "author": "Marcos Lilljedahl <marcos.lilljedahl@mercadolibre.com>",
+  "contributors": [
+    "Matias Rege <matias.rege@mercadolibre.com>",
+    "Gabriel Eisbruch <gabriel.eisbruch@mercadolibre.com>",
+    "Vitaly Aminev <v@makeomatic.ru>",
+    "Keri Henare <keri@henare.co.nz>"
+  ],
+  "keywords": [
+    "buffer"
+  ],
+  "files": [
+    "dist/**/*",
+    "index.d.ts"
+  ],
   "scripts": {
-	"test": "mocha --debug --globals myThis,myHolder,myCallee,State_myThis --reporter spec -t 5000 -s 3000 ${TESTFILE}"
+    "build": "babel src --out-dir dist --extensions '.ts' --source-maps",
+    "coverage": "jest --coverage --env=node",
+    "lint": "tslint --project tsconfig.json",
+    "test": "jest",
+    "type-check": "tsc"
   },
-  "dependencies": {
-	},
+  "dependencies": {},
   "devDependencies": {
-        "should" : "0.6.x",
-	"mocha" : "1.2.x"
-	},
-  "optionalDependencies": {},
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.11",
+    "@types/mysql": "^2.15.5",
+    "@types/node": "^11.11.6",
+    "husky": "^1.3.1",
+    "jest": "^24.5.0",
+    "lint-staged": "^8.1.5",
+    "nodemon": "^1.18.10",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.14.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.3.4000"
+  },
   "engines": {
-    "node": "*"
+    "node": ">=6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "tslint --project tsconfig.json",
+      "git add"
+    ]
   }
 }
